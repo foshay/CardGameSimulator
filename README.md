@@ -14,3 +14,11 @@ So it looks like the odds would have been in my favor of surviving the matching 
 
 # Notes
 I know this is a slow way to do this and creating so many objects is unneeded in a simulation as simple as this, but I wanted to make this as much like a "card drawing game" as possible without a gui lol.
+
+# Notes part 2
+I got 'the itch' so implemented the dull way of calculating this via lists instead. Here are the results after running 10 sims of 10,000 sims (100,000 sims total):
+Dull:
+Time taken: 12.682347130775451
+Fancy:
+Time taken: 20.735045433044434
+Dull is 38.84% faster than Fancy
