@@ -3,7 +3,7 @@ from concurrent.futures import ThreadPoolExecutor
 import random
 
 
-def runDull(printStats=True):
+def runDullOptimized(printStats=True):
     with ThreadPoolExecutor() as executor:
         results = list(executor.map(runSimulation, range(10000)))  # Run 10,000 simulations
     if printStats:
@@ -37,7 +37,7 @@ def compareDecks():
     numbers2 = list(range(1, 53))
     # Shuffle the numbers
     random.shuffle(numbers1)
-    random.shuffle(numbers2)
+    # random.shuffle(numbers2) # You don't need to shuffle the second list
     # Check if any of the numbers match in the same position
     for i in range(len(numbers1)):
         if numbers1[i] == numbers2[i]:
@@ -45,4 +45,4 @@ def compareDecks():
     return False, len(numbers1)
 
 if __name__ == '__main__':
-    runDull(printStats=True)
+    runDullOptimized(printStats=True)

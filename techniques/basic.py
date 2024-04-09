@@ -3,7 +3,7 @@ from concurrent.futures import ThreadPoolExecutor
 import random
 
 
-def runDull(printStats=True):
+def runBasic(printStats=True):
     with ThreadPoolExecutor() as executor:
         results = list(executor.map(runSimulation, range(10000)))  # Run 10,000 simulations
     if printStats:
@@ -24,25 +24,11 @@ def runDull(printStats=True):
         print(f'Standard Deviation: {standardDeviation}')
 
 def runSimulation(_):
-    matched = False
-    cardsTotal = 0
-    while not matched:
-        matched, cards = compareDecks()
-        cardsTotal += cards
+    cardsTotal = 1
+    while random.randint(1, 53) != 1:
+        cardsTotal += 1
     return cardsTotal
 
-def compareDecks():
-    # Create a list of the numbers 1 through 52
-    numbers1 = list(range(1, 53))
-    numbers2 = list(range(1, 53))
-    # Shuffle the numbers
-    random.shuffle(numbers1)
-    random.shuffle(numbers2)
-    # Check if any of the numbers match in the same position
-    for i in range(len(numbers1)):
-        if numbers1[i] == numbers2[i]:
-            return True, i + 1
-    return False, len(numbers1)
 
 if __name__ == '__main__':
-    runDull(printStats=True)
+    runBasic(printStats=True)

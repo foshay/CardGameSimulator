@@ -48,4 +48,4 @@ def compareCards(deck1, deck2):
     return False
 
 if __name__ == '__main__':
-    runFancy()
+    runFancy(printStats=True)
